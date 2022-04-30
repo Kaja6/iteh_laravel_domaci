@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class ChangeRealeseYearToClassInDressTable extends Migration
+class AddDesignerToDressesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,7 @@ class ChangeRealeseYearToClassInDressTable extends Migration
     public function up()
     {
         Schema::table('dresses', function (Blueprint $table) {
-            $table->renameColumn('releaseYear','class');
+            $table->foreignId('designer_id');
         });
     }
 
@@ -26,7 +26,7 @@ class ChangeRealeseYearToClassInDressTable extends Migration
     public function down()
     {
         Schema::table('dresses', function (Blueprint $table) {
-            $table->renameColumn('class','realeseYear');
+            $table->removeColumn('designer_id');
         });
     }
 };

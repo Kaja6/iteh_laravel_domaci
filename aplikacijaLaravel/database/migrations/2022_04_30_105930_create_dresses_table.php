@@ -18,7 +18,6 @@ class CreateDressesTable extends Migration
             $table->string('model');
             $table->string('color');
             $table->integer('releaseYear');
-            $table->foreignId('designer_id');
             $table->foreignId('type_id');
             $table->foreignId('user_id');   
             $table->timestamps();
